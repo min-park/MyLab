@@ -2,9 +2,12 @@ package com.minkyung.mylab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.minkyung.mylab.com.minkyung.mylab.customView.PentagonShapeView;
 
 import static com.minkyung.mylab.R.drawable.icon_face_laughing_blue;
 
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton main_button_2;
     RadioButton main_button_3;
     RadioButton main_button_4;
+    PentagonShapeView main_button_pentagon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         main_button_2 = (RadioButton) findViewById(R.id.main_button_2);
         main_button_3 = (RadioButton) findViewById(R.id.main_button_3);
         main_button_4 = (RadioButton) findViewById(R.id.main_button_4);
+        main_button_pentagon = (PentagonShapeView) findViewById(R.id.main_button_pentagon);
     }
 
     private void setEvent() {
@@ -57,6 +62,13 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Toast.makeText(MainActivity.this, checkedId + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        main_button_pentagon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "pentagon button is clicked!!!", Toast.LENGTH_SHORT).show();
             }
         });
     }
