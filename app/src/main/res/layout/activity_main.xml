@@ -50,15 +50,10 @@
             />
     </RadioGroup>
 
-<!--    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        >-->
-        <com.minkyung.mylab.customView.PentagonShapeView
-            android:id="@+id/main_button_pentagon"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:background="@color/colorAccent"/>
-<!--    </TextView>-->
+    <com.minkyung.mylab.customView.PentagonShapeView
+        android:id="@+id/main_button_pentagon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@null"/>
+
 </LinearLayout>
