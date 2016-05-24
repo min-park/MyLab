@@ -7,9 +7,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.minkyung.mylab.com.minkyung.mylab.customView.PentagonShapeView;
-
-import static com.minkyung.mylab.R.drawable.icon_face_laughing_blue;
+import com.minkyung.mylab.customView.PentagonShapeView;
 
 public class MainActivity extends AppCompatActivity {
     RadioGroup radio_group;

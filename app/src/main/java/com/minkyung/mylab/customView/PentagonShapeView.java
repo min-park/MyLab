@@ -1,4 +1,4 @@
-package com.minkyung.mylab.com.minkyung.mylab.customView;
+package com.minkyung.mylab.customView;
 
 import android.content.Context;
 import android.graphics.Canvas;
