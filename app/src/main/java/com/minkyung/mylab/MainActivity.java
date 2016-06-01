@@ -10,12 +10,12 @@ import android.widget.Toast;
 import com.minkyung.mylab.customView.PentagonShapeView;
 
 public class MainActivity extends AppCompatActivity {
-    RadioGroup radio_group;
-    RadioButton main_button_1;
-    RadioButton main_button_2;
-    RadioButton main_button_3;
-    RadioButton main_button_4;
-    PentagonShapeView main_button_pentagon;
+    RadioGroup mainRadioGroup;
+    RadioButton mainButton1;
+    RadioButton mainButton2;
+    RadioButton mainButton3;
+    RadioButton mainButton4;
+    PentagonShapeView mainButtonPentagon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,35 +27,36 @@ public class MainActivity extends AppCompatActivity {
         initializeRadioGroup();
 
         // default
-        main_button_1.setBackgroundResource(R.drawable.icon_face_angry_blue);
+        mainButton1.performClick();
+//        mainButton1.setBackgroundResource(R.drawable.icon_face_angry_blue);
     }
 
     private void getView() {
-        radio_group = (RadioGroup) findViewById(R.id.radio_group);
-        main_button_1 = (RadioButton) findViewById(R.id.main_button_1);
-        main_button_2 = (RadioButton) findViewById(R.id.main_button_2);
-        main_button_3 = (RadioButton) findViewById(R.id.main_button_3);
-        main_button_4 = (RadioButton) findViewById(R.id.main_button_4);
-        main_button_pentagon = (PentagonShapeView) findViewById(R.id.main_button_pentagon);
+        mainRadioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        mainButton1 = (RadioButton) findViewById(R.id.main_button_1);
+        mainButton2 = (RadioButton) findViewById(R.id.main_button_2);
+        mainButton3 = (RadioButton) findViewById(R.id.main_button_3);
+        mainButton4 = (RadioButton) findViewById(R.id.main_button_4);
+        mainButtonPentagon = (PentagonShapeView) findViewById(R.id.main_button_pentagon);
     }
 
     private void setEvent() {
-        radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        mainRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 initializeRadioGroup();
                 switch (checkedId) {
                     case R.id.main_button_1:
-                        main_button_1.setBackgroundResource(R.drawable.icon_face_angry_blue);
+                        mainButton1.setBackgroundResource(R.drawable.icon_face_angry_blue);
                         break;
                     case R.id.main_button_2:
-                        main_button_2.setBackgroundResource(R.drawable.icon_face_laughing_blue);
+                        mainButton2.setBackgroundResource(R.drawable.icon_face_laughing_blue);
                         break;
                     case R.id.main_button_3:
-                        main_button_3.setBackgroundResource(R.drawable.icon_face_sad_blue);
+                        mainButton3.setBackgroundResource(R.drawable.icon_face_sad_blue);
                         break;
                     case R.id.main_button_4:
-                        main_button_4.setBackgroundResource(R.drawable.icon_face_flashed_blue);
+                        mainButton4.setBackgroundResource(R.drawable.icon_face_flashed_blue);
                         break;
                 }
 
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        main_button_pentagon.setOnClickListener(new View.OnClickListener() {
+        mainButtonPentagon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "pentagon button is clicked!!!", Toast.LENGTH_SHORT).show();
@@ -72,9 +73,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeRadioGroup() {
-        main_button_1.setBackgroundResource(R.drawable.icon_face_angry_gray);
-        main_button_2.setBackgroundResource(R.drawable.icon_face_laughing_gray);
-        main_button_3.setBackgroundResource(R.drawable.icon_face_sad_gray);
-        main_button_4.setBackgroundResource(R.drawable.icon_face_flashed_gray);
+        mainButton1.setBackgroundResource(R.drawable.icon_face_angry_gray);
+        mainButton2.setBackgroundResource(R.drawable.icon_face_laughing_gray);
+        mainButton3.setBackgroundResource(R.drawable.icon_face_sad_gray);
+        mainButton4.setBackgroundResource(R.drawable.icon_face_flashed_gray);
     }
 }
