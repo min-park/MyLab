@@ -1,8 +1,10 @@
 package com.minkyung.mylab;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -10,12 +12,12 @@ import android.widget.Toast;
 import com.minkyung.mylab.customView.PentagonShapeView;
 
 public class MainActivity extends AppCompatActivity {
-    RadioGroup mainRadioGroup;
-    RadioButton mainButton1;
-    RadioButton mainButton2;
-    RadioButton mainButton3;
-    RadioButton mainButton4;
-    PentagonShapeView mainButtonPentagon;
+    private RadioGroup mainRadioGroup;
+    private RadioButton mainButton3;
+    private RadioButton mainButton4;
+    private RadioButton mainButton1;
+    private RadioButton mainButton2;
+    private Button mainButtonStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         // default
         mainButton1.performClick();
-//        mainButton1.setBackgroundResource(R.drawable.icon_face_angry_blue);
     }
 
     private void getView() {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mainButton2 = (RadioButton) findViewById(R.id.main_button_2);
         mainButton3 = (RadioButton) findViewById(R.id.main_button_3);
         mainButton4 = (RadioButton) findViewById(R.id.main_button_4);
-        mainButtonPentagon = (PentagonShapeView) findViewById(R.id.main_button_pentagon);
+        mainButtonStart = (Button) findViewById(R.id.main_button_start);
     }
 
     private void setEvent() {
@@ -64,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mainButtonPentagon.setOnClickListener(new View.OnClickListener() {
+        mainButtonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "pentagon button is clicked!!!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), EnterInformationActivity.class));
             }
         });
     }

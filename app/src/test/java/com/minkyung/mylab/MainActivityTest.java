@@ -1,9 +1,13 @@
 package com.minkyung.mylab;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,6 +21,8 @@ import static org.junit.Assert.*;
 public class MainActivityTest {
     Activity activity;
     RadioGroup mainRadioGroup;
+    private RadioButton mainButton3;
+    private RadioButton mainButton1;
 
     @Before
     public void setUp() throws Exception {
@@ -25,8 +31,22 @@ public class MainActivityTest {
     }
 
     @Test
-    public void whenOpenActivity_defaultSelectedButtonIsMainButton1() throws Exception {
-        mainRadioGroup = (RadioGroup) activity.findViewById(R.id.radio_group);
+    public void whenOpenActivity_mainButton1IsSelected() throws Exception {
         assertEquals(R.id.main_button_1, mainRadioGroup.getCheckedRadioButtonId());
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    @Test
+    public void onClickOtherEmoticonButton_changeIsChecked() throws Exception {
+        mainButton1 = (RadioButton) activity.findViewById(R.id.main_button_1);
+        mainButton3 = (RadioButton) activity.findViewById(R.id.main_button_3);
+
+        assertTrue(mainButton1.isChecked());
+        assertFalse(mainButton3.isChecked());
+
+        mainButton3.performClick();
+
+        assertFalse(mainButton1.isChecked());
+        assertTrue(mainButton3.isChecked());
     }
 }
